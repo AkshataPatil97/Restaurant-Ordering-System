@@ -1,0 +1,46 @@
+
+
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Shopping Cart</title>
+	<link rel="stylesheet" href="/static/css/style.css.css">
+</head>
+
+<body>
+<div id="title">
+
+	<div id="kart">
+		<a class="link" href="/cart">
+		<img src={{url_for('static', filename='images/shoppingCart.png')}} id="cartIcon" />
+		CART {{noOfItems}}
+		</a>
+	</div>
+</div>
+<div id="cartItems">
+	<h2>Shopping Cart</h2>
+	<div id="tableItems">
+		{% for dish in Cart %}
+		<div>
+			<hr>
+
+			<div id="itemName">
+				<span id="itemNameTag">{{dish[1]}}</span><br>
+				In stock<br>
+				<a href="/removeFromCart?productId={{row[0]}}">Remove</a>
+			</div>
+			<div id="itemPrice">
+				${{dish[2]}}
+			</div>
+		</div>
+		{% endfor %}
+		<hr>
+		<div id="total">
+			<span id="subtotal">Subtotal</span> : ${{totalPrice}}
+		</div>
+	</div>
+</div>
+<a href="/checkout">Proceed to checkout</a>
+</body>
+</html>
+

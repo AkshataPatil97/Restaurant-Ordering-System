@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/static/css/style.css">
+    <title>Document</title>
+</head>
+<body>
+    <div>
+        <form id="edit_form" method="POST" action="/edit_dish">
+            <div>
+                <label for="ID">Id :</label>
+                <input type="text" name="id" id="id"><br>
+                <label for="Name">Dish Name:</label>
+                <input type="text" name="name" id="name"><br>
+                <label for="Price">Dish Price:</label>
+                <input type="text" name="price" id="price"><br>
+            </div>
+        </form>
+            <div>
+                <button type="button" name="new" id="new">New</button>
+                <button type="button" name="save" id="save">Save</button>
+                <button onclick="updt" type="button" name="update" id="update">Update</button>
+                <button type="button" name="delete" id="delete">Delete</button>
+                <button type="button" name="exit" id="exit">Exit</button>
+            </div>
+    </div>
+    <div>
+        <table>
+            <tr>
+                <th>Dish ID</th>
+                <th>Dish Name</th>
+                <th>Dish Price</th>
+            </tr>
+            {% block content %}
+
+
+            {% endblock %}
+          </table>  
+    </div>
+    <script src="/static/js/script.js"></script>
+</body>
+</html>

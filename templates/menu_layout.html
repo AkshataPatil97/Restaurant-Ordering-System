@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Dessert Menu List</title>
+	<link rel="stylesheet" href="/static/css/style.css">
+	<script src="/static/js/script.js"></script>
+</head>
+<body>
+			{% with messages = get_flashed_messages(with_categories=true) %}
+                {% if messages %}
+                    {% for category, message in messages %}
+                        <div class="flash-message {{ category }}">
+                            <span>{{ message }}</span>
+                            <button class="flash-message-close">&times;</button>
+                        </div>
+                    {% endfor %}
+                {% endif %}
+            {% endwith %}
+		<div class="navbar">
+            <a href="/home" >Home</a>
+            <a href="/dessert_list">Desserts</a>
+            <a href="/veg_list">Veg</a>
+            <a href="/nonveg_list">Non-Veg</a>
+            <a href="/cart">Cart({{ session.get('cart_count', 0) }})</a>
+        </div>
+<div class="menus">
+	<div class="container">
+		<div class="menu">
+			<h1>Menu List</h1>
+				{% block content %}
+
+				{% endblock %}
+		</div>
+	</div>
+</div>
+</body>
+</html>

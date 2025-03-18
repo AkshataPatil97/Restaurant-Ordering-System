@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Order ID</title>
+        <style>
+            * {
+    		    margin: 0;
+    		    padding: 0;
+    		    box-sizing: border-box;
+    		    font-family: "Poppins", sans-serif;
+		    }
+            body {
+                background-color: rgb(231, 231, 231);
+            }
+            header {
+                margin-top: 1rem;
+                text-align: center;
+                align-items: center;
+                justify-content: center;
+                font-size: 17px;
+                margin-left: 2rem;
+                margin-right: 2rem;
+            }
+            .heading {
+                font-weight: 400;
+			    letter-spacing: 1.5px;
+                
+            }
+            .container {
+                margin-top: 2rem;
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                justify-content: center;
+            }
+            .clkbtn {
+                height: 45px;
+                width: 120px;
+                border-radius: 50px;
+                background-image: linear-gradient(to right,
+                        rgb(255, 195, 110),
+                        rgb(255, 146, 91));
+                font-size: 15px;
+                border: none;
+                cursor: pointer;
+            }
+
+        </style>
+    </head>
+    <body>
+        <header>
+            <h3 class="heading" >Click on the button below to order food.</h3>
+        </header>
+
+        <div class="container">
+            <form method="POST" action="/menu">
+                <button class="clkbtn">Order Food</button>
+            </form>
+        </div>
+        
+
+    </body>
+</html>

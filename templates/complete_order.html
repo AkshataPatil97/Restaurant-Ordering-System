@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <title>Customer Data</title>
+        <meta content="width=device-width, initial-scale=1.0" name="viewport">
+        <meta content="Free Website Template" name="keywords">
+        <meta content="Free Website Template" name="description">
+
+        <!-- Favicon -->
+        <link href="img/favicon.ico" rel="icon">
+
+        <!-- Google Font -->
+        <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400|Nunito:600,700" rel="stylesheet">
+
+        <!-- CSS Libraries -->
+        <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" rel="stylesheet">
+        <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" rel="stylesheet">
+        <link href="lib/animate/animate.min.css" rel="stylesheet">
+        <link href="lib/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet">
+        <link href="lib/flaticon/font/flaticon.css" rel="stylesheet">
+        <link href="lib/tempusdominus/css/tempusdominus-bootstrap-4.min.css" rel="stylesheet" />
+
+        <!-- Template Stylesheet -->
+        <link href="/static/css/admin_style.css" rel="stylesheet">
+    </head>
+
+    <body>
+    {% with messages = get_flashed_messages(with_categories=true) %}
+        {% if messages %}
+            {% for category, message in messages %}
+                <div class="flash-message {{ category }}" id="hideMe">
+                    <span>{{ message }}</span>
+                </div>
+            {% endfor %}
+        {% endif %}
+    {% endwith %}
+        <!-- Nav Bar Start -->
+        <div class="navbar navbar-expand-lg bg-light navbar-light">
+            <div class="container-fluid">
+                <a href="/cust_data" class="navbar-brand">Dessert Menu Details</a>
+                <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navbarCollapse">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+
+                <div class="collapse navbar-collapse justify-content-between" id="navbarCollapse">
+                    <div class="navbar-nav ml-auto">
+                        <a href="/counter" class="nav-item nav-link">Home</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <br><br><br><br><br>
+        <div class="container">
+            <form id="edit_form" method="POST" action="">
+                <div class="edit-container">
+                    <label for="edit-ID">ID :</label>
+                    <input class="inp-menu" type="text" name="id" id="edit-id"><br>
+                    <label for="edit-Name">Dish Name:</label>
+                    <input class="inp-menu" type="text" name="name" id="edit-name"><br>
+                    <label for="edit-Price">Dish Price:</label>
+                    <input class="inp-menu" type="text" name="price" id="edit-price"><br>
+                </div>
+
+                <div class="btn-container">
+                    <input class="btn1" type="submit" name="Add" id="Add" value="Add to cart">
+                </div>
+            </form>
+        </div>
+        <div class="table-container">
+            <table>
+                <tr>
+                    <th>Dish ID</th>
+                    <th>Dish Name</th>
+                    <th>Dish Price</th>
+                </tr>
+                {% block content %}
+                    {% for dish in veg_list %}
+                        <tr onclick="myFunction(this)">
+                            <td>{{ dish[0] }}</td>
+                            <td>{{ dish[1] }}</td>
+                            <td>{{ dish[2] }}</td>
+                        </tr>
+                    {% endfor %}
+                {% endblock %}
+            </table>
+        </div>
+        <a href="#" class="back-to-top"><i class="fa fa-chevron-up"></i></a>
+
+        <!-- JavaScript Libraries -->
+        <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.bundle.min.js"></script>
+        <script src="/static/lib/easing/easing.min.js"></script>
+        <script src="/static/lib/owlcarousel/owl.carousel.min.js"></script>
+        <script src="/static/lib/tempusdominus/js/moment.min.js"></script>
+        <script src="/static/lib/tempusdominus/js/moment-timezone.min.js"></script>
+        <script src="/static/lib/tempusdominus/js/tempusdominus-bootstrap-4.min.js"></script>
+
+         <!-- Template Javascript -->
+        <script src="/static/js/main.js"></script>
+    </body>
+</html>
